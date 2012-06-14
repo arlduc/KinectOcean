@@ -209,8 +209,8 @@ void testApp::makeRGBAComposite(ofxCvColorImage* _colorImg, ofxCvGrayscaleImage*
 
 bool testApp::overlapsRGBAComposite(ofImage* _composite, Boid b, int _w, int _h) {
 	unsigned char *alphaImg = _composite->getPixels();
-    int loc = b.loc.x+(b.loc.y*_w);
-    int RGBAval = loc*4 + 3;
+    int loc = floor(b.loc.x)+(floor(b.loc.y)*_w);
+    int RGBAval = (int)loc*4 + 3;
     
     printf("b.loc.x: %f, b.loc.y: %f, RGBAval:%i, alphaImg[RGBAval]:%c \n", b.loc.x, b.loc.y, RGBAval, alphaImg[RGBAval]);
 
@@ -307,15 +307,15 @@ void testApp::keyPressed (int key) {
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button)
 {
-
+    printf("mouse.x: %i, mouse.y: %i \n", x, y);
+	flock.addBoid(x,y);
+    //flock.addBoid();
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button)
 {
-    printf("mouse.x: %i, mouse.y: %i \n", x, y);
-	flock.addBoid(x,y);
-    //flock.addBoid();
+    
 }
 
 //--------------------------------------------------------------
