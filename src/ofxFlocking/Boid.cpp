@@ -25,7 +25,7 @@ Boid::Boid() {
 }
 
 Boid::Boid(int x, int y) {
-    Coralish.loadImage("images/Coralish_small01.png");
+    Coralish.loadImage("images/Coralish_small02.png");
     loc.set(x,y);
     printf("loc.x: %f, loc.y: %f \n", loc.x, loc.y);
 	vel.set(0,0);
@@ -108,7 +108,6 @@ void Boid::draw() {
     //float heading2D = ofRadToDeg(theta);
 
     
-    Coralish.draw(loc.x, loc.y);
 	ofPushStyle();
     ofFill();
     ofPushMatrix();
@@ -118,7 +117,12 @@ void Boid::draw() {
     ofVertex(0, -r*2);
     ofVertex(-r, r*2);
     ofVertex(r, r*2);
-    ofEndShape(true);	
+    ofEndShape(true);
+    
+    //Coralish commands
+    Coralish.setAnchorPercent(0.5, 0.5);
+    Coralish.draw(0, 0); 
+
     ofPopMatrix();
 	ofPopStyle();
 }
@@ -129,9 +133,9 @@ void Boid::flock(vector<Boid> &boids) {
 	ofVec2f coh = cohesion(boids);
 	
 	// Arbitrarily weight these forces
-	sep *= 0.5;
-	ali *= 0;
-	coh *= 4;
+	sep *= 1.5;
+	ali *= 1;
+	coh *= 1;
 	
 	acc += sep + ali + coh;
 }
