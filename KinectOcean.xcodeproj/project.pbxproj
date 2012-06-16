@@ -177,6 +177,7 @@
 		30F2B6741415565D00597A7B /* ofxCvShortImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxCvShortImage.h; sourceTree = "<group>"; };
 		30F2B6751415565D00597A7B /* ofxOpenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOpenCv.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		CAB5A4FC158C095D002711DD /* Coralish_small01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Coralish_small01.png; path = bin/data/images/Coralish_small01.png; sourceTree = "<group>"; };
 		CAE8419415856D0B00C4B169 /* Boid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boid.cpp; sourceTree = "<group>"; };
 		CAE8419515856D0B00C4B169 /* Boid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boid.h; sourceTree = "<group>"; };
 		CAE8419615856D0B00C4B169 /* ofxFlocking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFlocking.cpp; sourceTree = "<group>"; };
@@ -609,6 +610,14 @@
 			name = "3rd party frameworks";
 			sourceTree = "<group>";
 		};
+		CAB5A4DF158BF4B8002711DD /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CAB5A4FC158C095D002711DD /* Coralish_small01.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		CAE8419315856D0B00C4B169 /* ofxFlocking */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +657,7 @@
 				BB4B014C10F69532006C3DED /* addons */,
 				E45BE5980E8CC70C009D7055 /* frameworks */,
 				E4B69B5B0A3A1756003C02F2 /* KinectOceanDebug.app */,
+				CAB5A4DF158BF4B8002711DD /* images */,
 			);
 			sourceTree = "<group>";
 		};

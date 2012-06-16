@@ -25,6 +25,7 @@ Boid::Boid() {
 }
 
 Boid::Boid(int x, int y) {
+    Coralish.loadImage("images/Coralish_small01.png");
     loc.set(x,y);
     printf("loc.x: %f, loc.y: %f \n", loc.x, loc.y);
 	vel.set(0,0);
@@ -107,6 +108,7 @@ void Boid::draw() {
     //float heading2D = ofRadToDeg(theta);
 
     
+    Coralish.draw(loc.x, loc.y);
 	ofPushStyle();
     ofFill();
     ofPushMatrix();

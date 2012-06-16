@@ -37,6 +37,7 @@ public:
 	float r;
 	float maxforce;
 	float maxspeed;
+    ofImage Coralish;
 };
 
 #endif
