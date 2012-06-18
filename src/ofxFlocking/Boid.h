@@ -38,6 +38,7 @@ public:
 	float maxforce;
 	float maxspeed;
     ofImage Coralish;
+    //, Clownfish01, Clownfish02, Angelfish;
 };
 
 #endif

@@ -31,8 +31,8 @@ Boid::Boid(int x, int y) {
 	vel.set(0,0);
 	acc.set(0,0);
     r = 3.0;
-    maxspeed = 10;
-    maxforce = 0.1;
+    maxspeed = 20;
+    maxforce = 0.3;
 }
 
 // Method to update location
@@ -113,11 +113,11 @@ void Boid::draw() {
     ofPushMatrix();
     ofTranslate(loc.x, loc.y);
     ofRotateZ(heading2D);
-	ofBeginShape();
-    ofVertex(0, -r*2);
-    ofVertex(-r, r*2);
-    ofVertex(r, r*2);
-    ofEndShape(true);
+	//ofBeginShape();
+    //ofVertex(0, -r*2);
+    //ofVertex(-r, r*2);
+    //ofVertex(r, r*2);
+    //ofEndShape(true);
     
     //Coralish commands
     Coralish.setAnchorPercent(0.5, 0.5);
@@ -134,7 +134,7 @@ void Boid::flock(vector<Boid> &boids) {
 	
 	// Arbitrarily weight these forces
 	sep *= 1.5;
-	ali *= 1;
+	ali *= 0;
 	coh *= 1;
 	
 	acc += sep + ali + coh;

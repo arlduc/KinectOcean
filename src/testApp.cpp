@@ -25,7 +25,9 @@ void testApp::setup() {
 	grayThreshNear.allocate(kinect.width, kinect.height);
 	grayThreshFar.allocate(kinect.width, kinect.height);
     compositeImg.allocate(kinect.width, kinect.height, OF_IMAGE_COLOR_ALPHA);
+    compositeImg.mirror(false, true);
 	
+
 	nearThreshold = 200;
 	farThreshold = 0;
 	bThreshWithOpenCV = true;
@@ -39,15 +41,23 @@ void testApp::setup() {
 	// start from the front
 	bDrawPointCloud = false;
     
-    ofBackground(100, 200, 255);
+    //pink
+    //ofBackground(200, 100, 150);
+    
+    //blue
+    ofBackground(110, 195, 225);
 
 }
 
 //--------------------------------------------------------------
 void testApp::update() {
+    
     flock.update();
     for(int i=0; i<flock.boids.size(); i++) {            
         if (!overlapsRGBAComposite(&compositeImg, flock.boids[i], kinect.width, kinect.height))
+            /* initialize random seed: 
+            srand ( time(NULL) );
+            flock.boids[i].vel.set((rand() % 1),(rand() % 1));*/
             flock.boids[i].vel.set(0,0);
             flock.boids[i].acc.set(0,0);
     }
@@ -88,7 +98,7 @@ void testApp::update() {
 		
 		// find contours which are between the size of 20 pixels and 1/3 the w*h pixels.
 		// also, find holes is set to true so we will get interior contours as well....
-		contourFinder.findContours(grayImage, 10, (kinect.width*kinect.height)/2, 20, false);
+		//contourFinder.findContours(grayImage, 10, (kinect.width*kinect.height)/2, 20, false);
         
         makeRGBAComposite(&colorImg, &grayImage, &compositeImg,  kinect.width, kinect.height,true);
 
@@ -115,9 +125,11 @@ void testApp::draw() {
         //kinect.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
 		//contourFinder.draw(-50, -80, ofGetWindowWidth()*1.12, ofGetWindowHeight()*1.12);
         
-        //kinect.drawDepth(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+        //kinect.drawDepth(-50, -80, ofGetWindowWidth()*1.2, ofGetWindowHeight()*1.2);
 		//grayImage.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
-        compositeImg.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+        
+        //compositeImg.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+        compositeImg.draw(-50, -80, ofGetWindowWidth()*1.2, ofGetWindowHeight()*1.2);
         
         //contourFinder.draw(10, 320, 400, 300);
 		
